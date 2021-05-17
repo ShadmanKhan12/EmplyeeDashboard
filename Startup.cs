@@ -31,6 +31,7 @@ namespace EmployeeModule
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+            services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,7 +54,11 @@ namespace EmployeeModule
             {
                 app.UseSpaStaticFiles();
             }
-
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Dashboard API v1");
+            });
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
