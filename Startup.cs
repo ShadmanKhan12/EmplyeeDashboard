@@ -1,5 +1,6 @@
 using EmployeeModule.Interfaces;
 using EmployeeModule.Models;
+using EmployeeModule.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,6 +27,7 @@ namespace EmployeeModule
             services.Configure<DbConfiguration>(Configuration.GetSection(nameof(DbConfiguration)));
             services.AddSingleton<IDbConfiguration>(sp => sp.GetRequiredService<IOptions<DbConfiguration>>().Value);
             services.AddControllersWithViews();
+            services.AddTransient<IEmployeeService, EmployeeService>();
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
