@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EmployeeModule.Interfaces;
+using EmployeeModule.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +14,17 @@ namespace EmployeeModule.Controllers
     [ApiController]
     public class EmployeeController : ControllerBase
     {
+        private readonly IEmployeeService empService;
+        public EmployeeController(IEmployeeService employeeService)
+        {
+            empService = employeeService;
+        }
         // GET: api/<EmployeeController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IList<Employee> Get()
         {
-            return new string[] { "value1", "value2" };
+            var employees = empService.GetAll();
+            return employees;
         }
 
         // GET api/<EmployeeController>/5
