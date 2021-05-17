@@ -31,9 +31,9 @@ namespace EmployeeModule.Services
             employee.ReplaceOne(sub => sub.Id == emp.Id, emp);
         }
 
-        public void Delete(Employee emp)
+        public void Delete(string id)
         {
-            employee.DeleteOne(sub => sub.Id == emp.Id);
+            employee.DeleteOne(sub => sub.Id == id);
         }
     }
 }

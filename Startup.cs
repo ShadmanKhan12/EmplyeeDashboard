@@ -56,6 +56,7 @@ namespace EmployeeModule
             {
                 app.UseSpaStaticFiles();
             }
+
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {

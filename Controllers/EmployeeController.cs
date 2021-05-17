@@ -49,10 +49,10 @@ namespace EmployeeModule.Controllers
         }
 
         // DELETE api/<EmployeeController>/5
-        [HttpDelete]
-        public void Delete([FromBody] Employee employee)
+        [HttpDelete("{id}")]
+        public void Delete(string id)
         {
-            empService.Delete(employee);
+            empService.Delete(id);
         }
     }
 }
