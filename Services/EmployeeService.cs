@@ -25,5 +25,15 @@ namespace EmployeeModule.Services
         }
         public IList<Employee> GetAll() =>
             employee.Find(sub => true).ToList();
+
+        public void Update(Employee emp)
+        {
+            employee.ReplaceOne(sub => sub.Id == emp.Id, emp);
+        }
+
+        public void Delete(Employee emp)
+        {
+            employee.DeleteOne(sub => sub.Id == emp.Id);
+        }
     }
 }

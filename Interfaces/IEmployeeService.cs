@@ -10,5 +10,7 @@ namespace EmployeeModule.Interfaces
     {
         IList<Employee> GetAll ();
         Employee Create(Employee employee);
+        void Update(Employee employee);
+        void Delete(Employee employee);
     }
 }

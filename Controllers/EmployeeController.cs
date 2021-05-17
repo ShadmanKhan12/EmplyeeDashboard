@@ -36,20 +36,23 @@ namespace EmployeeModule.Controllers
 
         // POST api/<EmployeeController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Employee employee)
         {
+            empService.Create(employee);
         }
 
         // PUT api/<EmployeeController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public void Put([FromBody] Employee employee)
         {
+            empService.Update(employee);
         }
 
         // DELETE api/<EmployeeController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete]
+        public void Delete([FromBody] Employee employee)
         {
+            empService.Delete(employee);
         }
     }
 }
